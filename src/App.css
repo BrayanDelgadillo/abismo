@@ -1,0 +1,519 @@
+
+.app {
+  min-height: 100vh;
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  display: flex;
+  flex-direction: column;
+  background: #101c1a;
+  color: #f0eee5;
+  font-family: Arial, sans-serif;
+}
+
+.topbar,
+.footer {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 28px 7%;
+}
+
+.brand {
+  font-family: Georgia, serif;
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.brand span {
+  color: #b6c6a2;
+}
+
+.round-info,
+.footer,
+.eyebrow,
+.game-details {
+  font-size: 10px;
+  letter-spacing: 2px;
+}
+
+.round-info,
+.footer {
+  color: #a6b0a5;
+}
+
+.hero {
+  position: relative;
+  z-index: 1;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 50px 24px 90px;
+}
+
+.eyebrow {
+  color: #b6c6a2;
+  margin-bottom: 18px;
+}
+
+.hero h1 {
+  margin: 0;
+  font-family: Georgia, serif;
+  font-size: clamp(64px, 12vw, 120px);
+  font-weight: normal;
+  letter-spacing: 12px;
+}
+
+.description {
+  max-width: 350px;
+  color: #c2c9be;
+  font-size: 15px;
+  line-height: 1.8;
+  margin: 20px 0 32px;
+}
+
+.start-button {
+  border: 0;
+  border-radius: 3px;
+  padding: 16px 25px;
+  background: #c4d0ad;
+  color: #17221d;
+  font-size: 13px;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.2s;
+}
+
+.start-button:hover {
+  background: #e0e8cf;
+  transform: translateY(-2px);
+}
+
+.start-button span {
+  margin-left: 15px;
+  font-size: 18px;
+}
+
+.game-details {
+  margin-top: 24px;
+  color: #a6b0a5;
+}
+
+.game-details span {
+  margin: 0 10px;
+}
+
+.footer {
+  font-size: 9px;
+}
+
+.coming-soon h2 {
+  font-family: Georgia, serif;
+  font-size: 36px;
+  font-weight: normal;
+}
+
+.coming-soon p:not(.eyebrow) {
+  color: #c2c9be;
+  margin-bottom: 25px;
+}
+
+/* Escenario ilustrado provisional */
+
+.cave-background {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  background:
+    radial-gradient(ellipse at 50% 48%, #344a3d 0%, transparent 45%),
+    linear-gradient(180deg, #172723, #101c1a 80%);
+}
+
+.cave-glow {
+  position: absolute;
+  width: 400px;
+  height: 500px;
+  left: 50%;
+  top: 20%;
+  transform: translateX(-50%);
+  background: radial-gradient(ellipse, #657b5733, transparent 70%);
+}
+
+.rope {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 2px;
+  height: 43%;
+  background: #b7a88a;
+  opacity: 0.8;
+}
+
+.explorer {
+  position: absolute;
+  top: 38%;
+  left: calc(50% - 13px);
+  width: 55px;
+  height: 100px;
+  transform: rotate(8deg);
+  animation: sway 3s ease-in-out infinite alternate;
+}
+
+.explorer-head {
+  position: absolute;
+  width: 27px;
+  height: 27px;
+  top: 0;
+  left: 12px;
+  border-radius: 50%;
+  background: #d7a77e;
+  border: 4px solid #a9b58e;
+}
+
+.explorer-body {
+  position: absolute;
+  width: 30px;
+  height: 40px;
+  top: 29px;
+  left: 10px;
+  border-radius: 10px;
+  background: #b6c6a2;
+}
+
+.explorer-backpack {
+  position: absolute;
+  width: 14px;
+  height: 24px;
+  top: 35px;
+  left: 0;
+  border-radius: 5px;
+  background: #a66f48;
+}
+
+.explorer-leg {
+  position: absolute;
+  top: 64px;
+  width: 9px;
+  height: 30px;
+  border-radius: 5px;
+  background: #d1c1a1;
+}
+
+.explorer-leg.left {
+  left: 12px;
+  transform: rotate(18deg);
+}
+
+.explorer-leg.right {
+  left: 29px;
+  transform: rotate(-18deg);
+}
+
+.cave-rock {
+  position: absolute;
+  width: 180px;
+  height: 100px;
+  background: #263831;
+  opacity: 0.9;
+  filter: blur(1px);
+}
+
+.rock-one {
+  top: 15%;
+  left: -70px;
+  transform: rotate(25deg);
+  border-radius: 20% 80% 30% 70%;
+}
+
+.rock-two {
+  top: 25%;
+  right: -90px;
+  transform: rotate(-30deg);
+  border-radius: 70% 30% 80% 20%;
+}
+
+.rock-three {
+  bottom: 8%;
+  left: 15%;
+  width: 100px;
+  height: 60px;
+  border-radius: 50%;
+  opacity: 0.4;
+}
+
+@keyframes sway {
+  from {
+    transform: rotate(-5deg);
+  }
+
+  to {
+    transform: rotate(8deg);
+  }
+}
+
+@media (max-width: 600px) {
+  .topbar,
+  .footer {
+    padding: 22px 6%;
+  }
+
+  .round-info {
+    font-size: 8px;
+  }
+
+  .hero {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .hero h1 {
+    letter-spacing: 7px;
+  }
+
+  .description {
+    font-size: 14px;
+  }
+}
+
+.game-screen {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+}
+
+.cave-game {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.cave-game canvas {
+  display: block;
+}
+
+.back-button {
+  position: absolute;
+  top: 28px;
+  left: 7%;
+  padding: 12px 18px;
+  border: 1px solid #64776b;
+  background: #172723;
+  color: #f0eee5;
+  cursor: pointer;
+  z-index: 5;
+}
+
+.back-button:hover {
+  background: #263831;
+}
+
+.game-interface {
+  position: absolute;
+  inset: 0;
+  z-index: 4;
+  pointer-events: none;
+  color: #f0eee5;
+}
+
+.game-interface button,
+.game-interface input {
+  pointer-events: auto;
+}
+
+.game-top {
+  position: absolute;
+  top: 28px;
+  right: 7%;
+  display: flex;
+  gap: 45px;
+  align-items: center;
+  text-align: right;
+}
+
+.game-top h2 {
+  margin: 6px 0;
+  font-family: Georgia, serif;
+  font-size: 24px;
+  font-weight: normal;
+}
+
+.interface-label {
+  display: block;
+  color: #b6c6a2;
+  font-size: 9px;
+  letter-spacing: 2px;
+}
+
+.timer strong,
+.game-bottom strong {
+  display: block;
+  margin-top: 6px;
+  font-size: 23px;
+}
+
+.question-panel {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: min(400px, 85%);
+  transform: translate(-50%, -50%);
+  text-align: center;
+  pointer-events: none;
+}
+
+.question-panel h2 {
+  margin: 15px 0 25px;
+  font-family: Georgia, serif;
+  font-size: 30px;
+  font-weight: normal;
+}
+
+.question-panel form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  pointer-events: auto;
+}
+
+.question-panel input {
+  width: 100%;
+  padding: 15px;
+  border: 1px solid #64776b;
+  border-radius: 3px;
+  background: #172723;
+  color: #f0eee5;
+  outline: none;
+}
+
+.question-panel input:focus {
+  border-color: #c4d0ad;
+}
+
+.feedback {
+  min-height: 20px;
+  color: #c4d0ad;
+  font-size: 13px;
+}
+
+.game-bottom {
+  position: absolute;
+  bottom: 28px;
+  left: 7%;
+  display: flex;
+  gap: 35px;
+}
+
+.answer-list {
+  position: absolute;
+  bottom: 100px;
+  right: 7%;
+  width: 180px;
+  max-height: 150px;
+  overflow-y: auto;
+}
+
+.answer-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 7px 0;
+  border-bottom: 1px solid #64776b55;
+  font-size: 13px;
+}
+
+.answer-item strong {
+  color: #c4d0ad;
+}
+
+.game-interface .back-button {
+  top: 28px;
+  left: 7%;
+}
+
+@media (max-width: 600px) {
+  .game-top {
+    top: 85px;
+    right: 6%;
+    gap: 20px;
+  }
+
+  .question-panel h2 {
+    font-size: 25px;
+  }
+
+  .answer-list {
+    right: 6%;
+    bottom: 115px;
+    width: 130px;
+  }
+}
+
+.game-interface button:disabled,
+.game-interface input:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.game-interface button:disabled:hover {
+  transform: none;
+}
+
+.result-screen {
+  position: absolute;
+  inset: 0;
+  z-index: 5;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  padding: 24px;
+  text-align: center;
+  background: rgba(8, 17, 14, 0.88);
+  color: #f0eee5;
+}
+
+.result-screen h1 {
+  font-size: clamp(2rem, 7vw, 4rem);
+  letter-spacing: 0.12em;
+}
+
+.result-screen > div {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.result-screen > div strong {
+  font-size: 2rem;
+}
+
+.result-screen > p {
+  color: #c0c5bb;
+}
+
+.rarity-message {
+  position: absolute;
+  inset: 0;
+  z-index: 5;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 24px;
+  text-align: center;
+  pointer-events: none;
+}
+
+.rarity-message h1 {
+  max-width: 850px;
+  margin-top: 16px;
+  color: #e8e3d5;
+  font-size: clamp(1.8rem, 5vw, 3.5rem);
+  letter-spacing: 0.08em;
+  text-shadow: 0 0 25px rgba(220, 205, 160, 0.25);
+}
